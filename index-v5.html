@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de Éxito: Banana Team | Ailani Castro Estudio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-clorofila: #114a2d;
+            --amarillo-banana: #f8d511;
+            --marron-oscuro: #1d120c;
+            --fondo-crema: #faf8f5;
+            --blanco: #ffffff;
+            --fuente-titulos: 'Luckiest Guy', cursive;
+            --fuente-cuerpo: 'Montserrat', sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: var(--fondo-crema);
+            color: var(--marron-oscuro);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--marron-oscuro);
+            color: var(--blanco);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 5px solid var(--amarillo-banana);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header .logo-agencia {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header .logo-agencia span {
+            color: var(--amarillo-banana);
+            font-weight: 300;
+        }
+
+        header .tagline {
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #cccccc;
+            border-left: 2px solid var(--amarillo-banana);
+            padding-left: 12px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--verde-clorofila) 0%, #082516 100%);
+            color: var(--blanco);
+            padding: 100px 8% 90px 8%;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background-color: var(--amarillo-banana);
+        }
+
+        .hero .etiqueta {
+            background-color: var(--amarillo-banana);
+            color: var(--marron-oscuro);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: var(--fuente-titulos);
+            font-size: 4.5rem;
+            color: var(--amarillo-banana);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 0px var(--marron-oscuro);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 850px;
+            margin: 0 auto;
+            font-weight: 300;
+            color: #e2f2e9;
+        }
+
+        .valores-seccion {
+            padding: 80px 8%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            font-family: var(--fuente-titulos);
+            font-size: 2.8rem;
+            color: var(--verde-clorofila);
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 0px var(--amarillo-banana);
+        }
+
+        .subtitulo-seccion {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto 50px auto;
+            color: #555555;
+        }
+
+        .contenedor-tarjetas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .tarjeta-valor {
+            flex: 1;
+            min-width: 280px;
+            background-color: var(--blanco);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border-top: 5px solid var(--verde-clorofila);
+            transition: transform 0.3s ease;
+        }
+
+        .tarjeta-valor:hover {
+            transform: translateY(-5px);
+        }
+
+        .tarjeta-valor h3 {
+            font-weight: 700;
+            color: var(--verde-clorofila);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .galeria-seccion {
+            background-color: #f2ede4;
+            padding: 80px 8%;
+        }
+
+        .cuadricula-galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .item-galeria {
+            position: relative;
+            background-color: var(--marron-oscuro);
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            cursor: pointer;
+        }
+
+        .muestrario-paleta {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .barra-color {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 25px;
+            color: var(--blanco);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+        
+        .barra-color span {
+            font-size: 0.75rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        .item-galeria img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .item-galeria:hover img {
+            transform: scale(1.12);
+        }
+
+        .capa-hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(29,18,12,0.85) 0%, rgba(11,74,45,0.95) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 35px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .item-galeria:hover .capa-hover {
+            opacity: 1;
+        }
+
+        .capa-hover h4 {
+            font-family: var(--fuente-titulos);
+            color: var(--amarillo-banana);
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            transform: translateY(15px);
+            transition: transform 0.4s ease;
+        }
+
+        .capa-hover p {
+            color: #f0ede8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            transform: translateY(15px);
+            transition: transform 0.4s ease 0.05s;
+        }
+
+        .item-galeria:hover .capa-hover h4,
+        .item-galeria:hover .capa-hover p {
+            transform: translateY(0);
+        }
+
+        .pdf-seccion {
+            padding: 80px 8%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contenedor-pdf {
+            position: relative;
+            padding-bottom: 75%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            border: 4px solid var(--marron-oscuro);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+            background-color: var(--blanco);
+        }
+
+        .contenedor-pdf iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        footer {
+            background-color: var(--marron-oscuro);
+            color: #a6a097;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 6px solid var(--verde-clorofila);
+        }
+
+        footer .firma {
+            font-size: 1.15rem;
+            color: var(--blanco);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        footer .firma span {
+            color: var(--amarillo-banana);
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.1rem; }
+            .titulo-seccion { font-size: 2.2rem; }
+            .contenedor-tarjetas { flex-direction: column; }
+            .contenedor-pdf { padding-bottom: 115%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-agencia">Ailani Castro <span>Estudio</span></div>
+        <div class="tagline">Resultados de Identidad</div>
+    </header>
+
+    <section class="hero">
+        <span class="etiqueta">Proyecto de Rediseño</span>
+        <h1>BANANA TEAM</h1>
+        <p>Evolución gráfica estratégica para el principal distribuidor de fruta selecta en la Central de Abastos. Un balance perfecto entre frescura, impacto comercial y solidez corporativa.</p>
+    </section>
+
+    <section class="valores-seccion">
+        <h2 class="titulo-seccion">Pilares de Marca</h2>
+        <p class="subtitulo-seccion">Propuesta de valor construida sobre los cimientos operativos y la visión comercial de Banana Team.</p>
+        
+        <div class="contenedor-tarjetas">
+            <div class="tarjeta-valor">
+                <h3>Calidad</h3>
+                <p>El compromiso absoluto por ofrecer frutas frescas, seleccionadas meticulosamente y en estado óptimo para cada cliente.</p>
+            </div>
+            <div class="tarjeta-valor">
+                <h3>Compromiso</h3>
+                <p>Cumplimiento estricto en la cadena de suministro, entregas puntuales y un servicio al cliente eficiente, cercano y profesional.</p>
+            </div>
+            <div class="tarjeta-valor">
+                <h3>Honestidad</h3>
+                <p>Transparencia total en políticas de precios, origen del producto y un trato justo tanto para comerciantes como para el consumidor final.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="galeria-seccion">
+        <h2 class="titulo-seccion">Aplicaciones del Sistema</h2>
+        <p class="subtitulo-seccion">Pasa el cursor por cada cuadrante para descubrir la normativa gráfica establecida por la agencia.</p>
+        
+        <div class="cuadricula-galeria">
+            <!-- Bloque 1: Imagen de la Cromática Oficial generada nativamente con bloques CSS -->
+            <div class="item-galeria">
+                <div class="muestrario-paleta">
+                    <div class="barra-color" style="background-color: #114a2d;">#114a2d <span>Verde Clorofila</span></div>
+                    <div class="barra-color" style="background-color: #f8d511; color: #1d120c; text-shadow: none;">#f8d511 <span>Amarillo Banana</span></div>
+                    <div class="barra-color" style="background-color: #1d120c;">#1d120c <span>Marrón Orgánico</span></div>
+                </div>
+                <div class="capa-hover">
+                    <h4>Cromática Oficial</h4>
+                    <p>Muestra visual e interactiva de los códigos tonales exactos del manual de identidad de Banana Team para empaques y comunicación.</p>
+                </div>
+            </div>
+
+            <!-- Bloque 2: Tipografías de la marca -->
+            <div class="item-galeria">
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80" alt="Tipografías del proyecto">
+                <div class="capa-hover">
+                    <h4>Tipografía Dual</h4>
+                    <p>Combinación armónica establecida: la expresividad de 'Luckiest Guy' para nombres primarios junto a la versatilidad de 'Montserrat' para textos de lectura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pdf-seccion">
+        <h2 class="titulo-seccion">Manual de Identidad</h2>
+        <p class="subtitulo-seccion">Examine e interactúe con el documento técnico completo cargado directamente desde la ruta especificada.</p>
+        
+        <div class="contenedor-pdf">
+            <iframe src="C:\Users\x360\Documents\Pagina web\BANANA TEAM FASE 2.pdf" title="Manual de Identidad - Banana Team Fase 2 PDF"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="firma">Ailani Castro <span>Estudio</span></div>
+        <p>&copy; 2026 Ecosistema Digital desarrollado para Banana Team. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
